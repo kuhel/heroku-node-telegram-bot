@@ -14,10 +14,16 @@ else {
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
 bot.on('message', (msg) => {
-  const name = msg.from.first_name;
-  bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
-    // reply sent!
-  });
+  if (msg.text == '/start') {
+    const name = msg.from.first_name;
+    bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
+      // reply sent!
+    });
+    bot.sendMessage(msg.chat.id, 'Berlin for the win!').then(() => {
+      // reply sent!
+    });
+  }
 });
+
 
 module.exports = bot;
